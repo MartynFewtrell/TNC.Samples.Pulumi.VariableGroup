@@ -10,6 +10,7 @@ class MyStack : Stack
     {
         // Create an Azure Resource Group
         var resourceGroup = new ResourceGroup("VariableGroups");
+
     }
 
 }
