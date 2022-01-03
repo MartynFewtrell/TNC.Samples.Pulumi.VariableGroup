@@ -1,15 +1,35 @@
-using System.Threading.Tasks;
 using Pulumi;
-using Pulumi.AzureNative.Resources;
-using Pulumi.AzureNative.Storage;
-using Pulumi.AzureNative.Storage.Inputs;
+using AzureDevOps = Pulumi.AzureDevOps;
 
 class MyStack : Stack
 {
     public MyStack()
     {
-        // Create an Azure Resource Group
-        var resourceGroup = new ResourceGroup("VariableGroups");
+        var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        {
+        });
+
+
+        var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
+        {
+            ProjectId = project.Id,
+            Description = "Test Variable Group Description",
+            AllowAccess = true,
+            Variables =
+            {
+                new AzureDevOps.Inputs.VariableGroupVariableArgs
+                {
+                    Name = "key",
+                    Value = "value",
+                },
+                new AzureDevOps.Inputs.VariableGroupVariableArgs
+                {
+                    Name = "Account Password",
+                    SecretValue = "p@ssword123",
+                    IsSecret = true,
+                },
+            },
+        });
 
     }
 
