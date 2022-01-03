@@ -5,6 +5,11 @@ VisualStudioVersion = 17.0.32014.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TNC.Samples.Pulumi.VariableGroup.Deployment", "TNC.Samples.Pulumi.VariableGroup.Deployment\TNC.Samples.Pulumi.VariableGroup.Deployment.csproj", "{C0AEA571-BF18-4D75-A531-13D68E5530A0}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{DE492003-5085-457B-80D2-9B9716506AC8}"
+	ProjectSection(SolutionItems) = preProject
+		azure-pipelines.yml = azure-pipelines.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

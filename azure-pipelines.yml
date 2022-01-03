@@ -1,0 +1,29 @@
+trigger:
+  branches:
+    include:
+      - master
+      - development
+
+pr:
+  - master
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- group: VariableGroup.Deployment
+
+stages:
+- stage: Infrastructure
+  displayName: Infrastructure
+  jobs:
+  - job: 'Deployment'
+    steps:
+
+    - task: Pulumi@1
+      displayName: 'Review Infrastructure'
+      inputs:
+        azureSubscription: $(azure.service.principal)
+        command: "preview"
+        cwd: $(pulumi.working.directory)
+        stack: $(pulumi.stack.name)
