@@ -1,0 +1,3 @@
+name: TNC.Samples.Pulumi.VariableGroup.Deployment
+runtime: dotnet
+description: An Azure Native C# Pulumi program to demonstrate the use of VariableGroups
