@@ -27,3 +27,13 @@ stages:
         command: "preview"
         cwd: $(pulumi.working.directory)
         stack: $(pulumi.stack.name)
+
+    - task: Pulumi@1
+      displayName: 'Create Infrastructure'
+      condition: eq(variables['Build.SourceBranch'], 'refs/heads/master')
+      inputs:
+        azureSubscription: $(azure.service.principal)
+        command: "up"
+        args: '--yes --skip-preview'
+        cwd: $(pulumi.working.directory)
+        stack: $(pulumi.stack.name)
