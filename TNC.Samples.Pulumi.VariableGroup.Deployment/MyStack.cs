@@ -11,12 +11,14 @@ class MyStack : Stack
         var resourceGroupName = "Logged value";
         Pulumi.Log.Info(resourceGroupName);
 
-        var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        var project = new AzureDevOps.Project("TNC.TestProject", new AzureDevOps.ProjectArgs
         {
+            Name = "TNC.TestProject",
         });
 
-        var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
+        var variablegroup = new AzureDevOps.VariableGroup("VariableGroup.Test", new AzureDevOps.VariableGroupArgs
         {
+            Name = "VariableGroup.Test",
             ProjectId = project.Id,
             Description = "Test Variable Group Description",
             AllowAccess = true,
