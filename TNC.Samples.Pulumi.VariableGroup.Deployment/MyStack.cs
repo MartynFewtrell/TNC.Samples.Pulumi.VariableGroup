@@ -14,6 +14,7 @@ class MyStack : Stack
         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
         {
         });
+
         var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
         {
             ProjectId = project.Id,
