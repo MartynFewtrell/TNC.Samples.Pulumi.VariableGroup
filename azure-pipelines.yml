@@ -14,15 +14,16 @@ variables:
 - group: VariableGroup.Deployment
 - group: TNC.Shared
 
+  env:
+    AZDO_ORG_SERVICE_URL: $(AZDO-ORG-SERVICE-URL)
+    AZDO_PERSONAL_ACCESS_TOKEN: $(AZDO-PERSONAL-ACCESS-TOKEN)
+
 stages:
 - stage: Infrastructure
   displayName: Infrastructure
   jobs:
   - job: 'Deployment'
     steps:
-    env:
-      AZDO_ORG_SERVICE_URL: $(AZDO-ORG-SERVICE-URL)
-      AZDO_PERSONAL_ACCESS_TOKEN: $(AZDO-PERSONAL-ACCESS-TOKEN)
 
     - task: Pulumi@1
       displayName: 'Review Infrastructure'
