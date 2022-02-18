@@ -11,7 +11,7 @@ class MyStack : Stack
         var resourceGroupName = "Logged value";
         Pulumi.Log.Info(resourceGroupName);
 
-        var outputValue = Environment.GetEnvironmentVariable("AZDO_ORG_SERVICE_URL");
+        var outputValue = Environment.GetEnvironmentVariable("MY_PIPELINE_VALUE");
         if (outputValue != null)
         {
             Pulumi.Log.Info(outputValue);
