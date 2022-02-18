@@ -1,15 +1,21 @@
 using Pulumi;
 using Pulumi.AzureDevOps;
 using Pulumi.AzureNative.Resources;
+using System;
 using AzureDevOps = Pulumi.AzureDevOps;
 
 class MyStack : Stack
 {
-
     public MyStack()
     {
         var resourceGroupName = "Logged value";
         Pulumi.Log.Info(resourceGroupName);
+
+        var outputValue = Environment.GetEnvironmentVariable("MY_PIPELINE_VALUE");
+        if (outputValue != null)
+        {
+            Pulumi.Log.Info(outputValue);
+        }
 
         var project = new AzureDevOps.Project("TNC.TestProject", new AzureDevOps.ProjectArgs
         {
@@ -38,6 +44,8 @@ class MyStack : Stack
             },
         });
 
+        
+        
 
     }
 

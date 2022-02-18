@@ -12,6 +12,13 @@ pool:
 
 variables:
 - group: VariableGroup.Deployment
+- group: TNC.Shared
+- name: AZDO_ORG_SERVICE_URL
+  value: $(AZDO-ORG-SERVICE-URL)
+- name: AZDO_PERSONAL_ACCESS_TOKEN
+  value: $(AZDO-PERSONAL-ACCESS-TOKEN)
+- name: MY_PIPELINE_VALUE
+  value: "This is the value to log"
 
 stages:
 - stage: Infrastructure
