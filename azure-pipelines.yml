@@ -13,10 +13,10 @@ pool:
 variables:
 - group: VariableGroup.Deployment
 - group: TNC.Shared
-
-env:
-  AZDO_ORG_SERVICE_URL: $(AZDO-ORG-SERVICE-URL)
-  AZDO_PERSONAL_ACCESS_TOKEN: $(AZDO-PERSONAL-ACCESS-TOKEN)
+- name: AZDO_ORG_SERVICE_URL
+  value: $(AZDO-ORG-SERVICE-URL)
+- name: AZDO_PERSONAL_ACCESS_TOKEN
+  value: $(AZDO-PERSONAL-ACCESS-TOKEN)
 
 stages:
 - stage: Infrastructure
