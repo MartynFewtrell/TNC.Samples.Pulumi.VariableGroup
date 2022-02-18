@@ -1,6 +1,7 @@
 using Pulumi;
 using Pulumi.AzureDevOps;
 using Pulumi.AzureNative.Resources;
+using System;
 using AzureDevOps = Pulumi.AzureDevOps;
 
 class MyStack : Stack
@@ -9,6 +10,12 @@ class MyStack : Stack
     {
         var resourceGroupName = "Logged value";
         Pulumi.Log.Info(resourceGroupName);
+
+        var outputValue = Environment.GetEnvironmentVariable("AZDO_ORG_SERVICE_URL");
+        if (outputValue != null)
+        {
+            Pulumi.Log.Info(outputValue);
+        }
 
         var project = new AzureDevOps.Project("TNC.TestProject", new AzureDevOps.ProjectArgs
         {
