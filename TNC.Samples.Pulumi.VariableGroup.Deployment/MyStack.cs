@@ -9,7 +9,6 @@ class MyStack : Stack
     {
         var resourceGroupName = "Logged value";
         Pulumi.Log.Info(resourceGroupName);
-        Pulumi.Log.Info("Some stuff hear");
 
         var project = new AzureDevOps.Project("TNC.TestProject", new AzureDevOps.ProjectArgs
         {
